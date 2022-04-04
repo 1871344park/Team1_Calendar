@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 int curMonth = adt.getCurMonth();
                 adt.getCurDate();
 
-                Toast.makeText(getApplicationContext(), curYear+"년 "+(curMonth+1)+"월" +"일", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), curYear+"년 "+(curMonth+1)+"월", Toast.LENGTH_SHORT).show();
             }
         });
 
