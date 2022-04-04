@@ -9,8 +9,6 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Calendar;
-
 public class MainActivity extends AppCompatActivity {
 
     GridView monthView; // 그리드뷰 객체 생성
@@ -21,15 +19,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        monthView = findViewById(R.id.monthView); //그리드뷰 객체 참조
-        adt = new MonthAdapter(this); //어댑터 객체 생성
+        monthView = findViewById(R.id.monthView); // 그리드뷰 객체를 참조하는 코드
+        adt = new MonthAdapter(this); //어댑터 객체를 생성하는 코드
         monthView.setAdapter(adt); //그리드뷰에 어댑터 설정
 
         monthText = findViewById(R.id.monthText);
         setMonthText();
 
-        Button monthPre = findViewById(R.id.monthPrevious);
-        Button monthNext = findViewById(R.id.monthNext);
+        Button monthPre = findViewById(R.id.monthPrevious); // 이전버튼 이벤트
+        Button monthNext = findViewById(R.id.monthNext); // 다음버튼 이벤트
 
         // 이전버튼 클릭시 이전달로 이동하는 이벤트 정의
         monthPre.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
                 int curYear = adt.getCurYear();
                 int curMonth = adt.getCurMonth();
                 adt.getCurDate();
-
                 Toast.makeText(getApplicationContext(), curYear+"년 "+(curMonth+1)+"월", Toast.LENGTH_SHORT).show();
             }
         });

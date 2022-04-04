@@ -13,7 +13,7 @@ public class MonthAdapter extends BaseAdapter {
 
     Calendar cal; // 캘린더 클래스 객체 생성
     Context mContext; // 콘텍스트 클래스 객체 생성 // 왜 Context 클래스가 필요한가 : 어플리케이션과 관련된 정보에 접근하고자 하거나 어플리케이션과 연관된 시스템 레벨의 함수를 호출하고자 할 때 사용된다.
-    MonthItem[] items;
+    MonthItem[] items; // 배열 생성
     int curYear;
     int curMonth;
 
@@ -36,7 +36,7 @@ public class MonthAdapter extends BaseAdapter {
 
         cal.set(Calendar.DAY_OF_MONTH, 1); //1일로 설정
 
-        int startDay = cal.get(Calendar.DAY_OF_WEEK); //현재 달 1일의 요일 (1: 일요일, . . . 7: 토요일)
+        int startDay = cal.get(Calendar.DAY_OF_WEEK); //현재 달 1일의 요일 일요일 = 1 부터 시작이다.
         int lastDay = cal.getActualMaximum(Calendar.DATE); //달의 마지막 날짜
 
         int count = 1;
@@ -45,22 +45,22 @@ public class MonthAdapter extends BaseAdapter {
             count++;
         }
 
-        curYear = cal.get(Calendar.YEAR);
-        curMonth = cal.get(Calendar.MONTH);
+        curYear = cal.get(Calendar.YEAR); // Calendar.YEAR를 통해 현재 년 가져오기
+        curMonth = cal.get(Calendar.MONTH); // Calendar.MONTH를 통해 현재 달 가져오기
     }
 
     public void setPreMonth(){ //한 달 앞으로 가고 다시 계산
-        cal.add(Calendar.MONTH, -1);
+        cal.add(Calendar.MONTH, -1);  // 현재 달에 -1
         MonthSize();
     }
 
-    public void setNextMonth(){
-        cal.add(Calendar.MONTH, 1); //한 달 뒤로가고 다시 계산
+    public void setNextMonth(){ //한 달 뒤로가고 다시 계산
+        cal.add(Calendar.MONTH, 1); // 현재 달에 +1
         MonthSize();
     }
 
     @Override
-    public int getCount() {
+    public int getCount() { // 아이템 배열의 크기를 리턴해주는 함수
 
         return items.length;
     }
@@ -73,7 +73,7 @@ public class MonthAdapter extends BaseAdapter {
         GridView.LayoutParams params = new GridView.LayoutParams( GridView.LayoutParams.MATCH_PARENT,150);
         view.setLayoutParams(params);
 
-        return view; //뷰 뿌려주기
+        return view; //뷰를 각 뷰에 리턴해준다
     }
 
     @Override
