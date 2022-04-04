@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         monthText = findViewById(R.id.monthText);
         setMonthText();
 
-        Button monthPre = findViewById(R.id.monthPre);
+        Button monthPre = findViewById(R.id.monthPrevious);
         Button monthNext = findViewById(R.id.monthNext);
 
         // 이전버튼 클릭시 이전달로 이동하는 이벤트 정의
